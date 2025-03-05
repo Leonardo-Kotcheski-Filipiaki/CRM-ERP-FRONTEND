@@ -1,0 +1,67 @@
+:root{
+    --login-text-color: rgba(0, 0, 0, 0.860);
+    --title-login-page-color: rgba(0, 0, 0, 0.880);
+  }
+  .background-principal{
+    background-color: rgb(2, 2, 2);
+  }
+  
+  #page-title{
+    color: var(--title-login-page-color);
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .login-input-title{
+    padding-left: 1.1rem;
+  }
+  
+  .password-input-title{
+    padding-left: 0.6rem;
+  }
+  
+  #login-input-text{
+    font-size: 1.5rem;
+    text-align: right;
+    color: var(--login-text-color);
+  }
+  .input-login-page {
+    display: inline-block;
+    width: 250px;
+    margin-left: 1.2rem; 
+    padding-left: 10px;
+    font-size: 1.2rem;
+    border-top: 0.1rem gray solid;
+    border-left: 0.1rem gray solid;
+    border-right: 0.1rem gray solid;
+    border-bottom: 0.2rem black solid;
+    
+  }
+  
+  .background-tittle{
+    border-radius: 25%;
+    background-color: white;
+  }
+
+  .form-submit-button{
+    background-color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1.2rem;
+    border: 0.2rem black solid;
+    border-radius: 15%;
+  }
+  .error-div{
+    position: relative;
+    left: 13%;
+    bottom: 5%;
+    max-width: 280px;
+    max-height: 240px;
+  }
+
+  .errorMsg {
+    top: -20;
+    color: rgb(189, 23, 23);
+    font-weight: bold;
+
+  }
