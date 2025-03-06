@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from "react-bootstrap";
-import { UserCircle, MagnifyingGlass, NotePencil } from "@phosphor-icons/react";
+import { MagnifyingGlass, NotePencil } from "@phosphor-icons/react";
 import '../assets/css/home.css'
 import { getServiceOrders } from "../hooks/osHook";
+import Navbar from "../components/navbar";
 
-
-function Home(){ 
+function OSList(){ 
     const navigate = useNavigate();    
     const [osData, setOsData] = useState([]);
     const [filterData, setFilterData] = useState({}); 
@@ -20,19 +20,10 @@ function Home(){
             setOsData(res)
         })
     }, [])
-
-
-
-    const user = sessionStorage.getItem('user');   
+   
     return (
         <Container className="m-0 w-100" id="container" style={{maxWidth:"100%"}}>
-            <div className="navbar-nav p-4 w-100">
-                <div className="right-side d-flex flex-row-reverse align-items-center">
-                    <UserCircle className="user-icon" size={45}></UserCircle>
-                    <label className="user-name">{user}</label>
-                    
-                </div>
-            </div>
+            <Navbar></Navbar>
             <div className="actions m-2 d-flex">
                 <form>
                     <MagnifyingGlass className="MagnifyingGlass-search-logo me-2" size={45} weight="fill"></MagnifyingGlass><span className="search-text-span me-2" >Pesquisar</span>
@@ -102,4 +93,4 @@ function Home(){
     )
 }
 
-export default Home;
+export default OSList;
