@@ -1,7 +1,9 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login';
-import Home from './pages/home';
+import OSList from './pages/osList';
+import CreateOs from './pages/createOS';
+
 
 function App() {
   return (
@@ -9,8 +11,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/home' element={<Home/>}/>
-
+        <Route path='/os' element={<OSList/>}/>
+        <Route path='/create/os' element={<CreateOs/>}/>
       </Routes>
     </BrowserRouter>
   );

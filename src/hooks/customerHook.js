@@ -1,5 +1,5 @@
-export function getServiceOrders(){
-    return fetch(`http://localhost:2000/serviceorders/findAll`,{
+export function getCustomers(){
+    return fetch(`http://localhost:2000/customer/findAll`,{
             method: 'GET', 
             headers: {
                 'Content-Type': 'aplication/json',
