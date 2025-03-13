@@ -6,7 +6,7 @@ import { MagnifyingGlass, NotePencil } from "@phosphor-icons/react";
 import '../assets/css/home.css'
 import { getServiceOrders } from "../hooks/osHook";
 import Navbar from "../components/navbar";
-
+import Table from "../components/tableList";
 function OSList(){ 
     const navigate = useNavigate();    
     const [osData, setOsData] = useState([]);
@@ -35,58 +35,30 @@ function OSList(){
                         <option value={'toDo'}>Solicitação</option>
                         <option value={'status'}>Status</option>
                     </select>
-                    <input className="form-control ms-1" id="filterVal" onChange={(e) => setFilterData({...filterData, value: e.target.value})}></input>
+                    <input className="form-control ms-1" id="filterVal" onChange={(e) => {
+                            if(Object.keys(filterData).length < 1){
+                                e.target.value = '';
+                            }else{
+                                setFilterData({...filterData, value: e.target.value})
+                            }
+                        }} ></input>
                 </form>
-                <button className="btn btn-dark me-2"> Criar solicitação</button>
+                <button className="btn btn-dark me-2" onClick={() => {navigate('/create/os')}}> Criar solicitação</button>
             </div>
             <div className="list-div" id="list-render">
                 <div className="os-list">
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">OS</th>
-                                <th scope="col">Solicitação</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Status</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody id="teste">
-                            {
+                    
+                        {
                             Object.keys(filterData).length < 1 ? 
-                                osData.map(item => {
-                                    return(
-                                        <tr key={item.OS}>
-                                            <td key={item.OS}>{item.OS}</td>
-                                            <td>{item.toDo}</td>
-                                            <td>{item.description}</td>
-                                            <td>{item.status}</td>
-                                            <td className="btn-td">
-                                                <button className="btn btn-primary">Ver<MagnifyingGlass weight="bold"/></button>
-                                                <button className="btn btn-secondary">Editar<NotePencil weight="fill"/></button>
-                                            </td>
-                                        </tr>
-                                    )
-                            }) :
-                                osData.filter(item => {
-                                    return Object.keys(filterData).includes('config') === false || Object.keys(filterData).includes('value') === false ? item : item[filterData.config].includes(filterData.value.trim());
-                                    }).map(item => {
-                                        return(
-                                            <tr key={item.OS}>
-                                                <td key={item.OS}>{item.OS}</td>
-                                                <td>{item.toDo}</td>
-                                                <td>{item.description}</td>
-                                                <td>{item.status}</td>
-                                                <td className="btn-td">
-                                                    <button className="btn btn-primary">Ver<MagnifyingGlass weight="bold"/></button>
-                                                    <button className="btn btn-secondary">Editar<NotePencil weight="fill"/></button>
-                                                </td>
-                                            </tr>
-                                        )
-                                })
-                            }
-                        </tbody>
-                    </table>
+                                <Table th={["OS", "Solicitação", "Descrição", "Status", ""]} data_name={['OS', 'toDo', 'description', 'status']} td={osData} 
+                                extra={() => {return (<td className="btn-td"> <button className="btn btn-primary">Ver<MagnifyingGlass weight="bold"/></button> <button className="btn btn-secondary">Editar<NotePencil weight="fill"/></button></td>)}}></Table>
+                            :
+                            <Table th={["OS", "Solicitação", "Descrição", "Status", ""]} data_name={['OS', 'toDo', 'description', 'status']} td={osData.filter(item => {
+                                return Object.keys(filterData).includes('config') === false || Object.keys(filterData).includes('value') === false ? item : item[filterData.config].includes(filterData.value.trim());
+                         })} 
+                            extra={() => {return (<td className="btn-td"> <button className="btn btn-primary">Ver<MagnifyingGlass weight="bold"/></button> <button className="btn btn-secondary">Editar<NotePencil weight="fill"/></button></td>)}}></Table>
+                        }
+                    
                 </div>
             </div>
         </Container>
