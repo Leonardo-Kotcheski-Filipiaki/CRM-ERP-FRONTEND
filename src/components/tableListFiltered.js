@@ -1,6 +1,6 @@
 import React from "react";
 
-class Table extends React.Component{
+class TableFilter extends React.Component{
     render() {
         return(
             <table className="table">
@@ -27,6 +27,7 @@ class Table extends React.Component{
             </table>
         )
     }
+
 }
 
-export default Table
+export default TableFilter;

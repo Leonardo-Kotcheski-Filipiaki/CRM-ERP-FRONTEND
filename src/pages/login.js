@@ -25,14 +25,14 @@ function Login(){
         })
 
         if(sessionStorage.getItem('user') !== null && sessionStorage.getItem('user') !== undefined){
-            navigate('/home');
+            navigate('/os');
         }
         
     }
 
     useEffect(() => {
         if(sessionStorage.getItem('user') !== null && sessionStorage.getItem('user') !== undefined){
-            navigate('/home');
+            navigate('/os');
         }
     })
 
