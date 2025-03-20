@@ -1,0 +1,20 @@
+body{
+    overflow-y: scroll;
+}
+
+.adress-div{
+    max-width: 80%;
+}
+
+.adress{
+    width: 35%;
+}
+
+
+.adress-right{
+    width: 20%;
+}
+
+.btn-create{
+    width: 100px;
+}

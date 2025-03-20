@@ -7,6 +7,7 @@ import '../assets/css/home.css'
 import { getServiceOrders } from "../hooks/osHook";
 import Navbar from "../components/navbar";
 import Table from "../components/tableList";
+
 function OSList(){ 
     const navigate = useNavigate();    
     const [osData, setOsData] = useState([]);
