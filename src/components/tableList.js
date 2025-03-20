@@ -14,7 +14,7 @@ class Table extends React.Component{
                 <tbody id="teste">
                         {this.props.td.map(item => {
                             return(
-                                <tr>
+                                <tr id={item['_id']}>
                                     {this.props.data_name.map(element => {
                                         return (<td>{item[element] && item[element] !== '' && item[element] !== ' ' ? item[element] : '-'}</td>)
                                     })}
